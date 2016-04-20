@@ -1,7 +1,21 @@
 # SqlQueryBuilder
 
+*TODO:*
+- remove Registry and DB dependency from code. It used for escaping now.
+
 
 Only ConditionBuilder is ready now.
+Main idea of condition builder is 'condition bag is list of conditions, every condition bag - is condition too'.
+Every condition bag will be wrapped with parenthis in SQL.
+
+If you want set many conditions to WHERE, than put conditions in condition bag with suitable type. For example:
+```
+-- this is ConditionBag of 'AND' type, and contains two conditions: ConditionEqual and ConditionIn
+WHERE (field1 = value1 AND field 2 IN (1,2,3,4))
+```
+
+
+
 
 Usage:
 
@@ -19,7 +33,20 @@ AND =>
 
 *output:*
 ```
-three = 'example' AND four > '2015-09-11' AND (one = TRUE OR two IN (1,2,3,4))
+( ("one" = true::boolean OR "two" IN (1,2,3,4))  AND  ("three" = 'example' AND "four" > '2015-09-11') ) 
 ```
 
 $conditionStringSql = new ConditionBuilder($filter, $this->alias))->getSqlString();
+
+### Same example in code:
+```
+$conditionOne = new ConditionEqual('one', true);
+$conditionTwo = new ConditionIn('two', [1,2,3,4]);
+$conditionThree = new ConditionEqual('three', 'example');
+$conditionFour = new ConditionGreaterThan('four', '2015-09-11');
+
+$bagOr = new ConditionBagOr([$conditionOne, $conditionTwo]);
+$bagAnd = new ConditionBagAnd([$conditionThree, $conditionFour]);
+
+$mainBag = new ConditionBagAnd([$bagOr, $bagAnd]);
+```
