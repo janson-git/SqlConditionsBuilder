@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\Core\DB;
+namespace SqlQueryBuilder\ConditionBuilder;
 
 
 class ConditionException extends \Exception

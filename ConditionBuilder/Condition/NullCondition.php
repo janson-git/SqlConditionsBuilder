@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\Core\DB\Condition;
+namespace SqlQueryBuilder\ConditionBuilder\Condition;
 
 
 class NullCondition implements ICondition

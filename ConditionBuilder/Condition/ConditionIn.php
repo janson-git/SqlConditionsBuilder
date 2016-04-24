@@ -1,22 +1,17 @@
 <?php
 
-namespace App\Model\Core\DB\Condition;
+namespace SqlQueryBuilder\ConditionBuilder\Condition;
 
-use App\Model\Core\Registry;
 
 class ConditionIn extends BaseCondition
 {
-    /** @var \App\Model\Core\DB\DBManager */
-    protected $db;
     protected $op = 'IN';
     
     protected $fieldValues;
     
     public function __construct($fieldName, array $fieldValues)
     {
-        $this->db = Registry::getInstance(Registry::DB);
-        
-        $fieldValues = $this->db->escape($fieldValues);
+        $fieldValues = $this->escape($fieldValues);
 
         $this->fieldName = $this->prepareFieldName($fieldName);
         $this->fieldValues = $fieldValues;

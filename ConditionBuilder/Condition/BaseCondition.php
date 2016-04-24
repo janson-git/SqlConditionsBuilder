@@ -1,13 +1,18 @@
 <?php
 
-namespace App\Model\Core\DB\Condition;
+namespace SqlQueryBuilder\ConditionBuilder\Condition;
 
+use SqlQueryBuilder\ConditionBuilder\Sanitazer;
 
 abstract class BaseCondition implements ICondition
 {
     protected $fieldName;
     protected $fieldValue;
-    
+
+    protected function escape($fieldValues)
+    {
+        return Sanitazer::escape($fieldValues);
+    }
     
     public function getValue()
     {

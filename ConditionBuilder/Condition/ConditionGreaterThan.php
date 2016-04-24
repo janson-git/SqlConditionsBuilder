@@ -1,21 +1,16 @@
 <?php
 
-namespace App\Model\Core\DB\Condition;
+namespace SqlQueryBuilder\ConditionBuilder\Condition;
 
-use App\Model\Core\Registry;
 
 class ConditionGreaterThan extends BaseCondition
 {
-    /** @var \App\Model\Core\DB\DBManager */
-    protected $db;
     protected $op = '>';
     
     public function __construct($fieldName, $fieldValue)
     {
-        $this->db = Registry::getInstance(Registry::DB);
-        
         $params = [$fieldValue];
-        list($fieldValue) = $this->db->escape($params);
+        list($fieldValue) = $this->escape($params);
 
         $this->fieldName = $this->prepareFieldName($fieldName);
         $this->fieldValue = $fieldValue;

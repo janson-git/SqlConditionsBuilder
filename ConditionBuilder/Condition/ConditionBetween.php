@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Model\Core\DB\Condition;
+namespace SqlQueryBuilder\ConditionBuilder\Condition;
 
-use App\Model\Core\DB\ConditionException;
-use App\Model\Core\Registry;
+use SqlQueryBuilder\ConditionBuilder\ConditionException;
 
 class ConditionBetween extends BaseCondition
 {
-    /** @var \App\Model\Core\DB\DBManager */
-    protected $db;
-    
     protected $fieldValues;
     
     public function __construct($fieldName, array $fieldValues)
@@ -18,9 +14,8 @@ class ConditionBetween extends BaseCondition
             $count = count($fieldValues);
             throw new ConditionException("Condition 'BETWEEN' expect 2 operands, {$count} given.");
         }
-        $this->db = Registry::getInstance(Registry::DB);
         
-        $fieldValues = $this->db->escape($fieldValues);
+        $fieldValues = $this->escape($fieldValues);
 
         $this->fieldName = $this->prepareFieldName($fieldName);
         $this->fieldValues = $fieldValues;

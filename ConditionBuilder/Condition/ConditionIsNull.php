@@ -1,18 +1,12 @@
 <?php
 
-namespace App\Model\Core\DB\Condition;
+namespace SqlQueryBuilder\ConditionBuilder\Condition;
 
-use App\Model\Core\Registry;
 
 class ConditionIsNull extends BaseCondition
 {
-    /** @var \App\Model\Core\DB\DBManager */
-    protected $db;
-    
     public function __construct($fieldName)
     {
-        $this->db = Registry::getInstance(Registry::DB);
-        
         $this->fieldName = $this->prepareFieldName($fieldName);
     }
     

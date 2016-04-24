@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Model\Core\DB;
+namespace SqlQueryBuilder\ConditionBuilder;
 
 
-use App\Model\Core\DB\Condition\ConditionAnd;
-use App\Model\Core\DB\Condition\ConditionBag;
-use App\Model\Core\DB\Condition\ConditionBagAnd;
-use App\Model\Core\DB\Condition\ConditionBagOr;
-use App\Model\Core\DB\Condition\ConditionEqual;
-use App\Model\Core\DB\Condition\ConditionGreaterThan;
-use App\Model\Core\DB\Condition\ConditionGreaterThanOrEqual;
-use App\Model\Core\DB\Condition\ConditionIn;
-use App\Model\Core\DB\Condition\ConditionLessThan;
-use App\Model\Core\DB\Condition\ConditionLessThanOrEqual;
-use App\Model\Core\DB\Condition\ConditionNotEqual;
-use App\Model\Core\DB\Condition\ConditionNotIn;
-use App\Model\Core\DB\Condition\ConditionOr;
-use App\Model\Core\DB\Condition\NullCondition;
+use SqlQueryBuilder\ConditionBuilder\Condition\ConditionAnd;
+use SqlQueryBuilder\ConditionBuilder\Condition\ConditionBag;
+use SqlQueryBuilder\ConditionBuilder\Condition\ConditionBagAnd;
+use SqlQueryBuilder\ConditionBuilder\Condition\ConditionBagOr;
+use SqlQueryBuilder\ConditionBuilder\Condition\ConditionEqual;
+use SqlQueryBuilder\ConditionBuilder\Condition\ConditionGreaterThan;
+use SqlQueryBuilder\ConditionBuilder\Condition\ConditionGreaterThanOrEqual;
+use SqlQueryBuilder\ConditionBuilder\Condition\ConditionIn;
+use SqlQueryBuilder\ConditionBuilder\Condition\ConditionLessThan;
+use SqlQueryBuilder\ConditionBuilder\Condition\ConditionLessThanOrEqual;
+use SqlQueryBuilder\ConditionBuilder\Condition\ConditionNotEqual;
+use SqlQueryBuilder\ConditionBuilder\Condition\ConditionNotIn;
+use SqlQueryBuilder\ConditionBuilder\Condition\ConditionOr;
+use SqlQueryBuilder\ConditionBuilder\Condition\NullCondition;
 
 class ConditionBuilder
 {

@@ -1,0 +1,11 @@
+{
+    "name": "janson-git/sql-query-builder",
+    "description": "Sql Query Builder",
+    "authors": [
+        {
+            "name": "ivan.janson",
+            "email": "ivan.janson@gmail.com"
+        }
+    ],
+    "require": {}
+}
