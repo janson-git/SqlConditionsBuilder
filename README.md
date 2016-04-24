@@ -1,9 +1,5 @@
 # SqlQueryBuilder
 
-*TODO:*
-- remove Registry and DB dependency from code. It used for escaping now.
-
-
 Only ConditionBuilder is ready now.
 Main idea of condition builder is 'condition bag is list of conditions, every condition bag - is condition too'.
 Every condition bag will be wrapped with parenthis in SQL.
