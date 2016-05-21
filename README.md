@@ -45,4 +45,6 @@ $bagOr = new ConditionBagOr([$conditionOne, $conditionTwo]);
 $bagAnd = new ConditionBagAnd([$conditionThree, $conditionFour]);
 
 $mainBag = new ConditionBagAnd([$bagOr, $bagAnd]);
+
+$sql = $mainBag->getSqlString();
 ```
