@@ -1,7 +1,8 @@
-# SqlQueryBuilder
+# SqlConditionsBuilder
 
-Only ConditionBuilder is ready now.
-Main idea of condition builder is 'condition bag is list of conditions, every condition bag - is condition too'.
+Conditions Builder creates SQL string for 'WHERE' part of SQL query.
+
+Main idea is 'condition bag is list of conditions objects, every condition bag - is condition object too'.
 Every condition bag will be wrapped with parenthis in SQL.
 
 If you want set many conditions to WHERE, than put conditions in condition bag with suitable type. For example:

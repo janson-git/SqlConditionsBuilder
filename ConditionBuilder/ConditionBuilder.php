@@ -22,8 +22,14 @@ class ConditionBuilder
 {
     protected $alias;
     protected $filter;
-    
-    public function __construct($filter, $tableAlias)
+
+    /**
+     * ConditionBuilder constructor.
+     * @param array $filter
+     * @param string $tableAlias Specified table name to get fields from it.
+     * @throws \Exception
+     */
+    public function __construct($filter, $tableAlias = null)
     {
         if (empty($tableAlias)) {
             throw new \Exception('You must set table alias for Condition Builder');
@@ -66,8 +72,10 @@ class ConditionBuilder
         $array = [];
         foreach ($conditions as $field => $condition) {
             $alias = $this->alias;
-            if (!strpos($field, ".")) {
-                $field = "{$alias}.{$field}";
+            if (!empty($alias)) {
+                if (!strpos($field, ".")) {
+                    $field = "{$alias}.{$field}";
+                }
             }
             if (!is_array($condition)) {
                 $condition = ['=', $condition];
@@ -129,30 +137,6 @@ class ConditionBuilder
             case 'or' :
                 $condition = new ConditionOr($fieldName, $operands);
                 break;
-//            case in_array($operator, ['like', 'ilike']):
-//                if ($operands[0] === 'null') {
-//                    if (in_array($operator, ['=', '!='])) {
-//                        $operator = ($operator === '=') ? 'is' : 'is not';
-//                    } else {
-//                        throw new DataSourceException("Null value can not be compared using '{$operator}'");
-//                    }
-//                }
-//                $string .= "{$operator} {$condition[0]}";
-//                break;
-            // Специальный внутренний метод. Можно задать только в коде при создании условий выборки.
-//            case 'is empty':
-//                // нужны образцы для экранированых true и false
-//                $sample = [false, true];
-//                $db->escape($sample);
-//
-//                // если пришло условие 'empty = false'
-//                if ($condition[0] === $sample[0]) {
-//                    $string = " ({$fieldName} IS NOT NULL AND {$fieldName} != '') ";
-//                } else {
-//                    // и если всё же хочется пустых значений 'empty = true'
-//                    $string = " ({$fieldName} IS NULL OR {$fieldName} = '') ";
-//                }
-//                break;
 
             default :
                 throw new ConditionBuilderException("Unknown condition operator '{$operator}'");

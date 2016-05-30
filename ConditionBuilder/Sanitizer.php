@@ -3,7 +3,7 @@
 namespace SqlQueryBuilder\ConditionBuilder;
 
 
-class Sanitazer
+class Sanitizer
 {
     /** @var \PDO */
     private static $pdoConnection = null;

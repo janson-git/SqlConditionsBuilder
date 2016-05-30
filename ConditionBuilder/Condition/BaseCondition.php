@@ -2,7 +2,7 @@
 
 namespace SqlQueryBuilder\ConditionBuilder\Condition;
 
-use SqlQueryBuilder\ConditionBuilder\Sanitazer;
+use SqlQueryBuilder\ConditionBuilder\Sanitizer;
 
 abstract class BaseCondition implements ICondition
 {
@@ -11,7 +11,7 @@ abstract class BaseCondition implements ICondition
 
     protected function escape($fieldValues)
     {
-        return Sanitazer::escape($fieldValues);
+        return Sanitizer::escape($fieldValues);
     }
     
     public function getValue()

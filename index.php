@@ -17,7 +17,7 @@ $db = [
 ];
 // it used to escape string values in Conditions
 $pdo = new \PDO("{$db['type']}:dbname={$db['name']};host={$db['host']};port={$db['port']}", $db['user'], $db['pass']);
-ConditionBuilder\Sanitazer::setPdoConnection($pdo);
+ConditionBuilder\Sanitizer::setPdoConnection($pdo);
 
 // and now create conditions string
 $conditionOne = new Condition\ConditionEqual('one', true);
