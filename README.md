@@ -1,5 +1,7 @@
 # SqlConditionsBuilder
 
+* _only compposer autoloader is used_
+
 Conditions Builder creates SQL string for 'WHERE' part of SQL query.
 
 Main idea is 'condition bag is list of conditions objects, every condition bag - is condition object too'.
